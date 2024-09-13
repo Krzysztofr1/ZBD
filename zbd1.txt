@@ -1,0 +1,80 @@
+Utwórz nową bazę danych Imie_Nazwisko
+CREATE DATABASE Krzysztof_Rusel;
+
+4. W bazie danych Imie_Nazwisko utwórz tabele
+CREATE TABLE Uczniowie(
+Id_Ucznia INT AUTO_INCREMENT PRIMARY KEY,
+Nazwisko VARCHAR(40),
+Imie VARCHAR(25),
+Ulica VARCHAR(25)
+);
+CREATE TABLE TelefonyUczniow(
+Id_Ucznia INT,
+Telefon INT,
+PRIMARY KEY(Id_Ucznia, Telefon)
+);
+
+5.Utwórz nowe konto użytkownika o nazwie zgodnej z pierwszymi literami własnego imienia i nazwiska
+(np. IN)
+CREATE USER 'KR'@'localhost' IDENTIFIED BY 'password1234567';
+
+6.Zmień hasło użytkownikowi IN
+SET PASSWORD FOR 'KR'@'localhost' = 'password1234568';
+
+7. Zmień nazwę użytkownika na I_N
+RENAME USER 'KR'@'localhost' TO 'K_R'@'localhost';
+
+8. Usuń użytkownika I_N
+DROP USER 'K_R'@'localhost';
+
+9. Utwórz nowe konto użytkownika o nazwie zgodnej z własnym imieniem i nazwiskiem
+CREATE USER 'KrzysztofRusel'@'localhost' IDENTIFIED BY 'abcdefg12345';
+
+10. Wstaw znak podkreślenia pomiędzy imieniem i nazwiskiem
+RENAME USER 'KrzysztofRusel'@'localhost' TO 'Krzysztof_Rusel'@'localhost';
+
+11. Zmień hasło na dziesięcioznakowe z przynajmniej jedną dużą literą, znakiem specjalnym i cyfrą
+SET PASSWORD FOR 'Krzysztof_Rusel'@'localhost' = 'PASSword@1';
+
+12. Sprawdź uprawnienia nowego użytkownika
+SHOW GRANTS FOR 'Krzysztof_Rusel'@'localhost';
+
+13. Użytkownikowi o nazwie zgodnej z własnym imieniem i nazwiskiem nadaj uprawnienie do wyszuki-wania danych we wszystkich tabelach bazy danych Imie_Nazwisko
+GRANT SELECT ON Krzysztof_Rusel.* TO 'Krzysztof_Rusel'@'localhost';
+
+14. Sprawdź czy użytkownik może korzystać z tego uprawnienia
+SHOW GRANTS FOR 'Krzysztof_Rusel'@'localhost';
+
+
+15. Użytkownikowi o nazwie zgodnej z własnym imieniem i nazwiskiem nadaj uprawnienie do wstawia-nia danych do tabeli uczniowie w bazie danych Imie_Nazwisko
+GRANT INSERT ON Krzysztof_Rusel.Uczniowie TO 'Krzysztof_Rusel'@'localhost';
+
+16. Sprawdź czy użytkownik może korzystać z tego uprawnienia
+SHOW GRANTS FOR 'Krzysztof_Rusel'@'localhost';
+
+17. Użytkownikowi o nazwie zgodnej z własnym imieniem i nazwiskiem nadaj uprawnienie do usuwania i modyfikowania danych z tabeli telefonyuczniow w bazie danych Imie_Nazwisko
+GRANT DELETE, UPDATE ON Krzysztof_Rusel.TelefonyUczniow TO 'Krzysztof_Rusel'@'localhost';
+
+18. Sprawdź czy użytkownik może korzystać z tych uprawnień
+SHOW GRANTS FOR 'Krzysztof_Rusel'@'localhost';
+
+19. Użytkownikowi o nazwie zgodnej z własnym imieniem i nazwiskiem nadaj uprawnienie do tworzenia nowych tabel w bazie danych Imie_Nazwisko
+GRANT CREATE ON Krzysztof_Rusel.* TO 'Krzysztof_Rusel'@'localhost';
+
+
+20. Sprawdź czy użytkownik może korzystać z tego uprawnienia
+SHOW GRANTS FOR 'Krzysztof_Rusel'@'localhost';
+
+21. Sprawdź uprawnienia nowego użytkownika
+SHOW GRANTS FOR 'Krzysztof_Rusel'@'localhost';
+
+22. Zabierz uprawnienie do usuwania danych
+REVOKE DELETE ON Krzysztof_Rusel.TelefonyUczniow FROM 'Krzysztof_Rusel'@'localhost';
+
+
+
+
+
+
+
+
